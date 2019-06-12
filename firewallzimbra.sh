@@ -1,9 +1,6 @@
 #!/bin/bash
-
 echo "checking OS version"
-
 os_version=`rpm -qa *release | grep -Ei "centos|redhat|cloudlinux" | cut -d "-" -f3`
-
 if [ $os_version == "7" ];
 then
  echo "version 7"
@@ -12,10 +9,8 @@ else
  sleep 3
  exit 1
 fi
-
 echo "Checking for firewall"
 STATUS=`systemctl is-active firewalld`
-
 port_adding ()
 {
 ports=(22 25 110 143 389 443 465 587 993 995 7071 7023 7025)
@@ -27,7 +22,6 @@ done
 echo "Reloading firewall"
 firewall-cmd --reload
 } 
-
 if [ $STATUS == "active" ];
 then
  echo "active"
