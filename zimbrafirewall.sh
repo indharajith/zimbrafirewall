@@ -18,7 +18,7 @@ STATUS=`systemctl is-active firewalld`
 
 port_adding ()
 {
-ports=(22 25 110 143 389 443 465 587 993 995 7071 7023 7025)
+ports=(22 25 110 143 389 443 465 587 993 995 7071 7023 7025 8443)
 for i in "${ports[@]}";
 do
 echo "adding port $i";
